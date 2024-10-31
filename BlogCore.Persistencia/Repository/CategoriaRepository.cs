@@ -1,6 +1,7 @@
 ﻿using BlogCore.Data;
 using BlogCore.Domain.Entities;
 using BlogCore.Domain.IRepository;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BlogCore.Persistencia.Repository
 {
@@ -13,12 +14,20 @@ namespace BlogCore.Persistencia.Repository
             _context = context;
         }
 
+        public IEnumerable<SelectListItem> GetListaCategorias()
+        {
+            return _context.Categorias.Select(x => new SelectListItem()
+            {
+                Text = x.Nombre,
+                Value = x.Id.ToString()
+            });
+        }
+
         public void Update(Categoria categoria)
         {
             var response = _context.Categorias.FirstOrDefault(x => x.Id == categoria.Id);
             response!.Nombre = categoria.Nombre;
             response.Orden = categoria.Orden;
-            _context.SaveChanges();
         }
     }
 }

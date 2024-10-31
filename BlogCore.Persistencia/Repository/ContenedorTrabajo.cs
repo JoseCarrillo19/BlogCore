@@ -11,9 +11,13 @@ namespace BlogCore.Persistencia.Repository
         {
             _context = context;
             Categoria = new CategoriaRepository(context);
+            Articulo = new ArticuloRepository(context);
+            Slider = new SliderRepository(context);
         }
 
         public ICategoriaRepository Categoria {  get; private set; }
+        public IArticuloRepository Articulo {  get; private set; }
+        public ISliderRepository Slider {  get; private set; }
 
         public void Dispose()
         {

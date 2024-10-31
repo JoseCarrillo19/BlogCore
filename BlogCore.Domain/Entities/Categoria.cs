@@ -10,6 +10,7 @@ namespace BlogCore.Domain.Entities
         [Display(Name ="Nombre de la Categoría")]
         public string? Nombre { get; set; }
         [Display(Name = "Orden de Visualización")]
+        [Range(1,100, ErrorMessage ="El valor debe ser entre 1 y 100")]
         public int Orden { get; set; }
     }
 }
