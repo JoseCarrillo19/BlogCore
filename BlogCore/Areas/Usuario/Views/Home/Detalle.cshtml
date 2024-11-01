@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Detalle del articulo";
-    DateTime fechasCreacion = DateTime.Parse(Model.FechaCreacion);
+    DateTime fechasCreacion = DateTime.Parse(Model.FechaCreacion!);
     string fechaFormateada = fechasCreacion.ToString("dd/MM/yyyy");
 }
 

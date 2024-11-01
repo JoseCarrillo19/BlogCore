@@ -1,6 +1,7 @@
 using BlogCore.Data;
 using BlogCore.Domain.Entities;
 using BlogCore.Domain.IRepository;
+using BlogCore.Persistencia.Data.Inicializador;
 using BlogCore.Persistencia.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
 
+builder.Services.AddScoped<IInicializador, Inicializador>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +37,8 @@ else
 }
 app.UseStaticFiles();
 
+SiembraDatos();
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -44,3 +49,12 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+void SiembraDatos()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var inicializadorBD = scope.ServiceProvider.GetRequiredService<IInicializador>();
+        inicializadorBD.Inicializar();
+    }
+}

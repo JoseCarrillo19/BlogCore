@@ -13,6 +13,11 @@ namespace BlogCore.Persistencia.Repository
             _context = context;
         }
 
+        public IQueryable<Articulo> AsQueryable()
+        {
+            return _context.Set<Articulo>().AsQueryable();
+        }
+
         public void Update(Articulo articulo)
         {
             var response = _context.Articulos.FirstOrDefault(x => x.Id == articulo.Id);

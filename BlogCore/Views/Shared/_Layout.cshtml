@@ -22,14 +22,14 @@
 
         <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/"><img src="~/imagenes/Icono.jpg" width="80" style="border-radius: 10px;" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="/">
                                 Inicio
                                 <span class="visually-hidden">(current)</span>
                             </a>
@@ -48,9 +48,13 @@
                                 </li>
                             }                     
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" placeholder="Buscar Articulos">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                    <form class="busqueda d-flex" asp-controller="Home" asp-action="ResultadoBusqueda" method="get">
+                        <input class="form-control me-sm-2 d-flex text-white" type="text" name="SearchString" placeholder="Buscar Articulos">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <partial name="_LoginPartial"/>
@@ -68,6 +72,18 @@
             @RenderBody()
         </main>
     </div>
+
+    @*     <div class="container-fluid banner-container">
+    <div class="container banner-content">
+    <button type="button" class="btn btn-success subscribe-btn">Suscríbete a Nuestro Blog</button>
+    </div>
+    </div> *@
+
+@*     <footer class="border-top footer text-muted bg-dark" style="background-color: #1a1a1a !important;">
+        <div class="container py-4">
+            <span class="text-white">&copy; 2024 - BlogCore -</span> <a href="https://carrillo.com" class="text-white">Desarrollador por José Carrillo</a>
+        </div>
+    </footer> *@
 
     <footer class="border-top footer text-muted">
         <div class="container">
