@@ -8,6 +8,8 @@
 
         ISliderRepository Slider { get; }
 
+        IUsuarioRepository Usuario { get; }
+
         void Save();
     }
 }

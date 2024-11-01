@@ -1,9 +1,11 @@
 ﻿using BlogCore.Domain.Entities.ViewModels;
 using BlogCore.Domain.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogCore.Areas.Administrador.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Area("Administrador")]
     public class ArticulosController : Controller
     {

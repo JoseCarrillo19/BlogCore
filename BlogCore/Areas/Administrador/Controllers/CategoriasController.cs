@@ -1,10 +1,11 @@
-﻿using BlogCore.Application.Intefaces;
-using BlogCore.Domain.Entities;
+﻿using BlogCore.Domain.Entities;
 using BlogCore.Domain.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogCore.Areas.Administrador.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     [Area("Administrador")]
     public class CategoriasController : Controller
     {
