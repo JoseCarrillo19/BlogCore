@@ -1,24 +1,24 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .banner-container {
@@ -35,11 +35,26 @@ body {
     left: 50%;
     transform: translate(-50%);
     text-align: center;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 
 .subscribe-btn {
     padding: 15px 30px;
-    font-size: 32px;
+    font-size: 1.5rem;
     border-radius: 14px;
+}
+
+.footer {
+    background-color: #1a1a1a !important;
+}
+
+.card h5 {
+    height: 50px;
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .card {
+        margin-bottom: 20px;
+    }
 }

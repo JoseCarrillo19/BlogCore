@@ -4,26 +4,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-<div class="row mt-1">
-    <div class="col-ms-12">
-        <h1 class="text-center text-white bg-secondary py-1">Articulos, Noticias y mas</h1>
+<div class="row mt-4">
+    <div class="col-12">
+        <h1 class="text-center text-white bg-secondary py-2">Artículos, Noticias y Más</h1>
     </div>
 </div>
 
-
-@if(Model.Articulo!.Count() > 0)
+@if (Model.Articulo != null && Model.Articulo.Any())
 {
     <hr />
     <div class="row">
-        @foreach (var articulo in Model.Articulo!.OrderBy(x => x.Id))
+        @foreach (var articulo in Model.Articulo.OrderBy(x => x.Id))
         {
-            <div class="col-4">
-                <div class="card">
-                    <img src="@articulo.UrlImagen" class="img-thumbnail" width="100%" />
-                    <div class="card-body">
-                        <h5 class="text-center">@articulo.Nombre</h5>
-                        <a asp-action="Detalle" class="btn btn-success" style="border-radius;10px" asp-route-id="@articulo.Id">
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@articulo.UrlImagen" class="card-img-top" alt="@articulo.Nombre" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@articulo.Nombre</h5>
+                        <a asp-action="Detalle" asp-route-id="@articulo.Id" class="btn btn-success mt-auto" style="border-radius: 10px;">
                             Más Información
                         </a>
                     </div>
@@ -34,15 +32,12 @@
 }
 else
 {
-    <p>No hay artículos</p>
+    <p>No hay artículos disponibles.</p>
 }
-
-
-<br />
 
 <div class="text-center">
     <nav aria-label="Page navigation">
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
             <li class="page-item @(Model.PageIndex > 1 ? "" : "disabled")">
                 <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-page="@(Model.PageIndex - 1)">Anterior</a>
             </li>
